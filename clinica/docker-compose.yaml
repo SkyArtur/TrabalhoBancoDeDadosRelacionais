@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  db_clinica:
+    image: postgres
+    container_name: db_clinica
+    environment:
+      - POSTGRES_DB=${DATABASE}
+      - POSTGRES_USER=${USER}
+      - POSTGRES_PASSWORD=${PASSWORD}
+    volumes:
+      - clinicaData:/var/lib/postgresql/data/
+    ports:
+      - '5430:5432'
+
+volumes:
+  livrariaData:
+    name: 'clinicaData'
