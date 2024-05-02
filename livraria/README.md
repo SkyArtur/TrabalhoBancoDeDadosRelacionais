@@ -4,6 +4,4 @@
 > *Bacharelado em Engrenharia de Software - Uninter*
 > *Profº Ricardo Sonaglio Albano.*
 
-![proposta.png](..%2F..%2Fimgens%2Fproposta.png)
-
- 
+![proposta.png](assets%2Fproposta.png)
