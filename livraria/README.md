@@ -4,4 +4,5 @@
 > *Bacharelado em Engrenharia de Software - Uninter*
 > *Profº Ricardo Sonaglio Albano.*
 
-![proposta.png](assets%2Fproposta.png)
+![MRE-livraria](https://github.com/SkyArtur/TrabalhoBancoDeDadosRelacionais/assets/93395366/f33b8132-5c8d-4d77-8132-3fb0641476f8)
+
