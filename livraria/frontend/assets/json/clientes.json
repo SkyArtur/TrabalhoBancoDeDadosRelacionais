@@ -1,0 +1,62 @@
+[
+    {
+        "nome": "Alice de Souza",
+        "telefone": "(41) 99854-5648",
+        "email": "alice.s@email.com.br",
+        "endereco": "Rua das Flores, 3578, Curitiba - PR"
+    },
+    {
+        "nome": "Mario Vicente",
+        "telefone": "(11) 99527-3721",
+        "email": "mario.v@email.com.br",
+        "endereco": "Avenida Ipiranga, 1246, apto. 201, São Paulo - SP"
+    },
+    {
+        "nome": "Maria Helena Mantovani",
+        "telefone": "(21) 99763-1213",
+        "email": "maria.m@email.com.br",
+        "endereco": "Rua Vicente Machado, 10503, apto. 1007, Rio de Janeiro - RJ"
+    },
+    {
+        "nome": "Vitor Martins",
+        "telefone": "(85) 98754-2050",
+        "email": "vitor.m@email.com.br",
+        "endereco": "Rua Osvaldo Cruz, 578, Fortaleza - CE"
+    },
+    {
+        "nome": "Nicole Amanda de Jesus",
+        "telefone": "(92) 98418-3141",
+        "email": "amanda.j@email.com.br",
+        "endereco": "Rua Venezuela, 649, Manaus - AM"
+    },
+    {
+        "nome": "Luciano Tucolo",
+        "telefone": "(51) 99234-5458",
+        "email": "luciano.t@email.com.br",
+        "endereco": "Avenida Uruguai, 3152, apto. 2202, Porto Alegre - RS"
+    },
+    {
+        "nome": "Paula Roberta Vitorino",
+        "telefone": "(65) 98953-7828",
+        "email": "paula.v@email.com.br",
+        "endereco": "Rua dos Açudes, 1029, Cuiabá - MT"
+    },
+    {
+        "nome": "Guilherme Koeriche",
+        "telefone": "(63) 99315-6264",
+        "email": "guilherme.k@email.com.br",
+        "endereco": "Avenida Brasil, 953, apto. 709, Palmas - TO"
+    },
+    {
+        "nome": "Beatriz Leopoldina",
+        "telefone": "(71) 99264-3585",
+        "email": "beatriz.l@email.com.br",
+        "endereco": "Rua dos Baianos, 12549, Salvador - BA"
+    },
+    {
+        "nome": "Lucas Cochuelo",
+        "telefone": "(69) 98767-1545",
+        "email": "lucas.c@email.com.br",
+        "endereco": "Rua Independente, 209, Porto Velho - RO"
+    }
+]

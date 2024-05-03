@@ -1,0 +1,18 @@
+form(method='post' action='' id='form-register')
+    div(class='row mb-1')
+        div(class='col')
+            label(for='nome' class='form-label') Nome:
+            input(class='form-control form-control-sm' id='nome' name='nome')
+    dic(class='row mb-1')
+        div(class='col-4')
+            label(for='telefone' class='form-label') Telefone:
+            input(class='form-control form-control-sm' id='telefone' name='telefone')
+        div(class='col-8')
+            label(for='email' class='form-label') Email:
+            input(class='form-control form-control-sm' id='email' name='email')
+    dic(class='row ')
+        div(class='col-9')
+            label(for='endereco' class='form-label') Endereço:
+            input(class='form-control form-control-sm' id='endereco' name='endereco')
+        div(class='col-3 d-flex justify-content-start align-items-end')
+            input(type='submit' class='btn btn-info px-5' value='Salvar')

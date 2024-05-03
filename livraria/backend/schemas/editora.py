@@ -22,4 +22,3 @@ class Editora(Base):
         for editora in session.execute('select * from editoras;'):
             editoras.append(cls(**editora))
         return editoras
-    e

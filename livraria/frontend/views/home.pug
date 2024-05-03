@@ -1,0 +1,31 @@
+extends index
+
+block content
+    div(id='app-content-box' class='container h-100 overflow-y-auto text-bg-dark my-2 pt-3 px-5')
+        block exerc
+            div(class='w-100 d-flex justify-content-center')
+                img(src='images/modelo.png' id='app-model-image' class='img-fluid')
+
+block bottom
+    div(class='container text-center h-100')
+        div(class='row h-50')
+            div(class='col m-1 p-0 border  rounded a-exerc' a-exerc='/exerc01')
+                h6(class='border-bottom rounded-top text-bg-dark') Tabelas
+                small Implemente um Banco de Dados chamado “Livraria” e suas tabelas.
+            div(class='col m-1 p-0 border  rounded a-exerc' a-exerc='/exerc02')
+                h6(class='border-bottom rounded-top text-bg-dark') Consulta de Livros
+                small Consulta para listar o quantitativo de livros cadastrados, independentemente da editora.
+            div(class='col m-1 p-0 border  rounded a-exerc' a-exerc='/exerc03')
+                h6(class='border-bottom rounded-top text-bg-dark') Clientes Cadastrados
+                small Consulta para listar o nome dos clientes cadastrados em ordem crescente
+        div(class='row h-50')
+            div(class='col m-1 p-0 border  rounded a-exerc' a-exerc='/exerc04')
+                h6(class='border-bottom rounded-top text-bg-dark') Editoras e Títulos
+                small Consulta para listar o nome de todas as editoras e os seus respectivos livros em ordem decrescente pelo nome das editoras.
+            div(class='col m-1 p-0 border  rounded a-exerc' a-exerc='/exerc05')
+                h6(class='border-bottom rounded-top text-bg-dark') Editoras e Média de Preços
+                small  Consulta para listar o nome das editoras e a média de preço de seus respectivos livros.
+            div(class='col m-1 p-0 border  rounded a-exerc' a-exerc='/exerc06')
+                h6(class='border-bottom rounded-top text-bg-dark') Clientes e Compras
+                small Consulta para listar o nome de todos os clientes e a quantidade de livros comprados pelos mesmos.
+

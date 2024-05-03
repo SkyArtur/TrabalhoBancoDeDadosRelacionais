@@ -1,0 +1,71 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
+@import "node_modules/bootstrap/scss/bootstrap.scss"
+
+.main-app
+    height: 100vh
+
+
+*, *::before, *::after
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+#app-main
+    display: grid
+    grid-template-rows: 100px 40px 1fr 35px
+    grid-template-columns: 1fr
+    grid-template-areas: 'header' 'menu' 'content' 'footer'
+
+
+#app-header
+    grid-area: header
+
+
+#app-menu
+    grid-area: menu
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-template-rows: 1fr
+    gap: 3px
+    background-color: $primary-bg-subtle
+
+.a-link
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    border-top-left-radius: 5px
+    border-top-right-radius: 3px
+
+
+.a-link:hover
+    font-size: 1.15em
+    background-color: $body-bg
+
+.a-link:active
+    font-size: 1em
+
+.a-exerc
+    cursor: pointer
+
+.a-exerc:hover
+    box-shadow: 0 .5rem 1rem rgba($black, .15)
+
+#app-content
+    grid-area: content
+    display: grid
+    grid-template-rows: 2fr 1fr
+    grid-template-columns: 1fr
+
+#app-content-box
+    max-height: 490px
+
+#app-model-image
+    max-height: 470px
+
+
+#app-footer
+    grid-area: footer
+
+[a-exerc] > small
+    font-size: 0.7em
