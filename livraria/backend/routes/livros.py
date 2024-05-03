@@ -1,40 +1,21 @@
-from fastapi import APIRouter
-from deps.msg import MSG
-from schemas import Livro
+from fastapi import APIRouter, status, HTTPException
+from schemas import Livro, LivroEstoque, Estoque
 
-details = MSG(Livro)
 
 livros_router = APIRouter()
 
 
-@livros_router.get('/', **MSG.docs('Pedidos').get('get'))
-async def livros():
-    response = Livro()
-    return response.fetchall()
+@livros_router.post('/livros', summary='Registra Livro', status_code=status.HTTP_201_CREATED)
+async def post_livros(schema: LivroEstoque):
+    try:
+        return schema.save()
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL, detail=str(e))
 
 
-@livros_router.get('/{_id}', **MSG.docs('Pedidos').get('get_one'))
-async def livros(_id: int):
-    response: Livro = Livro()
-    response.id = _id
-    return response.fetchone()
-
-
-@livros_router.post('/', **MSG.docs('Pedidos').get('post'))
-async def livros(schema: Livro):
-    response = schema.insert()
-    return response
-
-
-@livros_router.put('/{_id}', **MSG.docs('Pedidos').get('put'))
-async def livros(_id: int, schema: Livro):
-    schema.id = _id
-    response = schema.update()
-    return response
-
-
-@livros_router.delete('/{_id}', **MSG.docs('Pedidos').get('delete'))
-async def livros(_id: int):
-    response = Livro()
-    response.id = _id
-    return response.delete()
+@livros_router.get('/livros')
+async def get_livros():
+    try:
+        return Livro.get_livros()
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL, detail=str(e))

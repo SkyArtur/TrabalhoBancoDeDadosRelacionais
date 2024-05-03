@@ -27,7 +27,7 @@ class Connector:
             response = self.cur.fetchone() if fetchone else self.cur.fetchall()
         except (mysql.connector.Error, AttributeError, TypeError) as err:
             print(err)
-            raise ConnectionError
+            # raise ConnectionError
         else:
             if commit:
                 self.conn.commit()
@@ -38,4 +38,4 @@ class Connector:
                 self.conn.close()
             except (mysql.connector.Error, AttributeError, TypeError) as err:
                 print(err)
-                raise ConnectionError
+                # raise ConnectionError

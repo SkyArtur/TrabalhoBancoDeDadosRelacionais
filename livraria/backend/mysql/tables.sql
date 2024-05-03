@@ -18,8 +18,8 @@ create table if not exists pedidos(
     id int unsigned primary key auto_increment,
     cliente_id int unsigned not null,
     foreign key (cliente_id) references clientes(id) on delete no action ,
-    data varchar(16),
-    valor numeric(5,2)
+    data varchar(16) not null ,
+    valor numeric(5,2) not null
 );
 
 
@@ -29,9 +29,9 @@ create table if not exists livros(
     foreign key (editora_id) references editoras(id) on delete no action ,
     titulo varchar(100) not null,
     autor varchar(50) not null,
-    ano INT,
+    ano int not null not null ,
     isbn varchar(20) not null,
-    preco numeric(5, 2)
+    preco numeric(5, 2) not null
 );
 
 create table if not exists item_pedido(
@@ -39,13 +39,13 @@ create table if not exists item_pedido(
     livro_id int unsigned not null ,
     foreign key (pedido_id) references pedidos(id) on delete no action,
     foreign key (livro_id) references livros(id) on delete no action,
-    quantidade int,
-    valor decimal(5, 2)
+    quantidade int not null ,
+    valor decimal(5, 2) not null
 );
 
 create table if not exists estoque(
     livro_id int unsigned not null ,
     foreign key (livro_id) references livros(id) on delete cascade,
-    quantidade int
+    quantidade int not null
 );
 

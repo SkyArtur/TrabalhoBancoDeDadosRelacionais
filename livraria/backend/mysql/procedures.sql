@@ -39,3 +39,6 @@ create procedure buscar_pedidos()
         join livros l on i.livro_id = l.id
         join clientes c on c.id = p.cliente_id;
     end;
+
+
+

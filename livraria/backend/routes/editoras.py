@@ -1,40 +1,22 @@
-from fastapi import APIRouter
-from deps.msg import MSG
+from fastapi import APIRouter, status, HTTPException
 from schemas import Editora
+from config import session
 
-details = MSG(Editora)
 
 editoras_router = APIRouter()
 
 
-@editoras_router.get('/', **MSG.docs('Pedidos').get('get'))
-async def editora():
-    response = Editora()
-    return response.fetchall()
+@editoras_router.post('/editoras', summary='Registrar editora', status_code=status.HTTP_201_CREATED)
+async def post_editoras(schema: Editora):
+    try:
+        return schema.save()
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL, detail=str(e))
 
 
-@editoras_router.get('/{_id}', **MSG.docs('Pedidos').get('get_one'))
-async def editoras(_id: int):
-    response: Editora = Editora()
-    response.id = _id
-    return response.fetchone()
-
-
-@editoras_router.post('/', **MSG.docs('Pedidos').get('post'))
-async def editoras(schema: Editora):
-    response = schema.insert()
-    return response
-
-
-@editoras_router.put('/{_id}', **MSG.docs('Pedidos').get('put'))
-async def editoras(_id: int, schema: Editora):
-    schema.id = _id
-    response = schema.update()
-    return response
-
-
-@editoras_router.delete('/{_id}', **MSG.docs('Pedidos').get('delete'))
-async def editoras(_id: int):
-    response = Editora()
-    response.id = _id
-    return response.delete()
+@editoras_router.get('/editoras', summary='Listar clientes', status_code=status.HTTP_200_OK)
+async def get_editoras():
+    try:
+        return Editora.get_editoras()
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL, detail=str(e))
