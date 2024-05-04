@@ -23,9 +23,13 @@ function simple_form() {
     }
 }
 
+function input_date() {
+    $('input#data').attr('value', new Date().toISOString().split('T')[0])
+}
 
 (
     function (){
         simple_form()
+        input_date()
     }
 )()

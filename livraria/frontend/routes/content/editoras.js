@@ -1,15 +1,22 @@
 const router = require("express").Router()
 const axios = require("axios")
+const httpStatus = require("http-status-codes");
 
 
 router.get('/', (req, res) => {
+    let context = {
+        title: 'Editoras',
+        elements: null,
+        error: null
+    }
     axios.get('http://localhost:8000/editoras')
         .then((response) => response.data)
         .then(editoras => {
-            let context = {
-                title: 'Editoras',
-                elements: editoras
-            }
+            context.elements = editoras
+            res.render('content/editoras', context)
+        })
+        .catch(() => {
+            context.error = `Error :: ${httpStatus.INTERNAL_SERVER_ERROR} :: Verifique a conexão com o servidor.`
             res.render('content/editoras', context)
         })
 })

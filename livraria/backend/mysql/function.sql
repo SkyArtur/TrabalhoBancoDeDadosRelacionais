@@ -34,7 +34,6 @@ create function inserir_cliente(_nome varchar(50), _telefone varchar(20), _email
             end if;
         end;
 
-
 create function atualizar_cliente(_id int, _nome varchar(50), _telefone varchar(20), _email varchar(50), _endereco varchar(100))
     returns integer deterministic
         begin
@@ -49,6 +48,7 @@ create function atualizar_cliente(_id int, _nome varchar(50), _telefone varchar(
                 return 0;
             end if;
         end;
+
 -- ##################################################################################################################
 -- EDITORAS
 
@@ -83,11 +83,11 @@ create function atualizar_editora(_id int, _nome varchar(50), _telefone varchar(
                 return 0;
             end if;
         end;
+
 -- ##################################################################################################################
 -- LIVROS
 
-
-create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varchar(50), _ano int, _isbn varchar(20), _preco numeric, _quantidade int)
+create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varchar(50), _ano int, _isbn varchar(20), _preco numeric(5, 2), _quantidade int)
     returns integer deterministic
         begin
             declare existe boolean default false;

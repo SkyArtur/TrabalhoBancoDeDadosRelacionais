@@ -1,6 +1,11 @@
 extends ../index
 
 block content
-
+    div(class='container' id='app-table-box')
+        include ../includes/_pedidos_table
+        if error
+            h4(class='text-center text-danger') #{error}
 
 block bottom
+    div(class='container my-2 px-4 py-3 bg-primary-subtle w-100' id='app-form-pedidos')
+        include ../includes/_form_register_pedido

@@ -9,6 +9,7 @@ function links(elements, formated) {
         })
         if  (window.location.pathname === url){
             $(link).toggleClass(formated)
+            $(link).children('h6').toggleClass('text-bg-dark')
         }
     })
 }

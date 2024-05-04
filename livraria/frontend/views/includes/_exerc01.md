@@ -1,6 +1,7 @@
 ## Tabelas do banco de dados Livraria
-
-
+---
+#### MySQL Query
+---
 ```sql
 create table if not exists clientes(
     id int unsigned primary key auto_increment,
@@ -53,3 +54,4 @@ create table if not exists estoque(
     quantidade int not null
 );
 ```
+---

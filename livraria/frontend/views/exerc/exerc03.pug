@@ -1,0 +1,19 @@
+extends ../home
+
+
+block exerc
+    include:markdown-it(linkify langPrefix='highlight-') ../includes/_exerc03.md
+    hr
+    div(class='(container')
+        table(class='table table-dark')
+            thead
+                tr
+                    th Cliente
+            tbody
+                if exercicios
+                    each exerc in exercicios
+                        tr
+                            td #{exerc.nome}
+                else
+                    h4 ERROR :: 500 :: Sem conexão com o servidor
+                    

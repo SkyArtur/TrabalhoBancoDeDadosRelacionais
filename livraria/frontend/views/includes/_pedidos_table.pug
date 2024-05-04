@@ -1,0 +1,19 @@
+table(class='table simple-table table-striped mt-2')
+    thead(class='table-dark text-center')
+        tr
+            th(scope='col') ID
+            th(scope='col') Cliente
+            th(scope='col') Título
+            th(scope='col') Data
+            th(scope='col') Quantidade
+            th(scope='col') valor
+    tbody
+        if elements
+            each element in elements
+                tr
+                    td(scope='row') #{element.id}
+                    td #{element.nome}
+                    td #{element.titulo}
+                    td #{element.data}
+                    td #{element.quantidade}
+                    td #{element.valor}
