@@ -1,0 +1,23 @@
+table(class='table table-striped mt-2')
+    thead(class='table-dark text-center')
+        tr
+            th(scope='col') Editora
+            th(scope='col') Título
+            th(scope='col') Autor(a)
+            th(scope='col') Ano
+            th(scope='col') ISBN
+            th(scope='col') Preço
+            th(scope='col') Qntd.
+
+    tbody
+        if elements
+            each element in elements
+                tr
+                    td(id=`editora${element.id}`) #{element.editora}
+                    td(id=`titulo${element.id}`) #{element.titulo}
+                    td(id=`autor${element.id}`) #{element.autor}
+                    td(id=`ano${element.id}`) #{element.ano}
+                    td(id=`isbn${element.id}`) #{element.isbn}
+                    td(id=`preco${element.id}`) #{element.preco}
+                    td(id=`quantidade${element.id}`) #{element.quantidade}
+                    td(id=`editora_id${element.id}` hidden) #{element.editora_id}

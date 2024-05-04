@@ -1,6 +1,9 @@
 extends ../index
 
 block content
-
+    div(class='container' id='app-table-box')
+        include ../includes/_livros_table
 
 block bottom
+    div(class='container my-2 px-4 py-3 bg-primary-subtle w-100' id='app-form-register')
+        include ../includes/_form_register_livro

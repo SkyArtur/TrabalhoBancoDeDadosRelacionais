@@ -5,7 +5,7 @@ from config import session
 pedidos_router = APIRouter()
 
 
-@pedidos_router.post('/pedidos', summary='Registrar pedido', status_code=status.HTTP_201_CREATED)
+@pedidos_router.post('/', summary='Registrar pedido', status_code=status.HTTP_201_CREATED)
 async def post_clientes(schema: Pedido):
     try:
         query = 'select inserir_pedido(%s, %s, %s, %s);'

@@ -34,6 +34,21 @@ create function inserir_cliente(_nome varchar(50), _telefone varchar(20), _email
             end if;
         end;
 
+
+create function atualizar_cliente(_id int, _nome varchar(50), _telefone varchar(20), _email varchar(50), _endereco varchar(100))
+    returns integer deterministic
+        begin
+            declare existe boolean default false;
+            select true into existe from clientes where id = _id;
+            if (existe)
+               then
+               update clientes set nome = _nome, telefone = _telefone, email = _email, endereco = _endereco
+                   where id = _id;
+               return _id;
+            else
+                return 0;
+            end if;
+        end;
 -- ##################################################################################################################
 -- EDITORAS
 
@@ -54,10 +69,25 @@ create function inserir_editora(_nome varchar(50), _telefone varchar(20), _email
             end if;
         end;
 
+create function atualizar_editora(_id int, _nome varchar(50), _telefone varchar(20), _email varchar(50), _endereco varchar(100))
+    returns integer deterministic
+        begin
+            declare existe boolean default false;
+            select true into existe from editoras where id = _id;
+            if (existe)
+               then
+               update editoras set nome = _nome, telefone = _telefone, email = _email, endereco = _endereco
+                   where id = _id;
+               return _id;
+            else
+                return 0;
+            end if;
+        end;
 -- ##################################################################################################################
 -- LIVROS
 
-create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varchar(50), _ano int, _isbn varchar(20), _preco numeric)
+
+create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varchar(50), _ano int, _isbn varchar(20), _preco numeric, _quantidade int)
     returns integer deterministic
         begin
             declare existe boolean default false;
@@ -68,31 +98,12 @@ create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varc
                 insert into livros (editora_id, titulo, autor, ano, isbn, preco)
                     values (_editora_id, _titulo, _autor, _ano, _isbn, _preco);
                 select last_insert_id() into livro;
+                insert into estoque (livro_id, quantidade) values (livro, _quantidade);
                 return livro;
             else
                 return 0;
             end if;
         end;
-
--- ##################################################################################################################
--- ESTOQUE
-
-create function inserir_estoque(_livro_id int, _quantidade int)
-    returns boolean deterministic
-        begin
-            declare existe boolean default false;
-            select true into existe from estoque where estoque.livro_id = _livro_id;
-            if existe
-                then
-                update estoque set quantidade = (quantidade + _quantidade) where livro_id = _livro_id;
-                return true;
-            else
-                insert into estoque (livro_id, quantidade) values (_livro_id, _quantidade);
-                return true;
-            end if;
-            return false;
-        end;
-
 
 -- ##################################################################################################################
 -- PEDIDOS

@@ -16,6 +16,12 @@ class Cliente(Base):
         query = 'select * from clientes c where c.id = %s;'
         return Cliente(**session.execute(query, tuple(cliente.values()), fetchone=True))
 
+    def update(self) -> 'Cliente':
+        query = 'select atualizar_cliente(%s, %s, %s, %s, %s);'
+        cliente = session.execute(query, self.tuple(), fetchone=True, commit=True)
+        query = 'select * from clientes c where c.id = %s;'
+        return Cliente(**session.execute(query, tuple(cliente.values()), fetchone=True))
+
     @classmethod
     def get_clientes(cls) -> List['Cliente']:
         clientes = []

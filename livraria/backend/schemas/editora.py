@@ -16,6 +16,12 @@ class Editora(Base):
         query = 'select * from editoras e where e.id = %s;'
         return Editora(**session.execute(query, tuple(editora.values()), fetchone=True))
 
+    def update(self) -> 'Editora':
+        query = 'select atualizar_editora(%s, %s, %s, %s, %s);'
+        editora = session.execute(query, self.tuple(), fetchone=True, commit=True)
+        query = 'select * from editoras e where e.id = %s;'
+        return Editora(**session.execute(query, tuple(editora.values()), fetchone=True))
+
     @classmethod
     def get_editoras(cls):
         editoras = []
