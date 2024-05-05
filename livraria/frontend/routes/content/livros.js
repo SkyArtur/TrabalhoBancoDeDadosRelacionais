@@ -1,6 +1,6 @@
 const router = require("express").Router()
-const axios = require("axios")
-const httpStatus = require("http-status-codes");
+const axios = require("../axiosInstance")
+const httpStatus = require("http-status-codes")
 
 
 router.get('/', (req, res) => {
@@ -10,10 +10,10 @@ router.get('/', (req, res) => {
         elements: null,
         error: null
     }
-    axios.get('http://localhost:8000/livros')
+    axios.get('/livros')
         .then(response => response.data)
         .then(livros => {
-            axios.get('http://localhost:8000/editoras')
+            axios.get('/editoras')
                 .then(response => response.data)
                 .then(editoras => {
                     context.elements = livros.map(lv => {
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     req.body.preco = Number(req.body.preco)
-    axios.post('http://localhost:8000/livros', req.body)
+    axios.post('/livros', req.body)
         .catch(console.error)
     res.redirect('/livros')
 })

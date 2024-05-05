@@ -1,17 +1,16 @@
 const router = require("express").Router()
-const axios = require("axios")
-
+const axios = require("../axiosInstance")
 
 
 router.get('/', (req, res) => {
-    axios.get('http://localhost:8000/exercicios/6')
+    axios.get('/exercicios/6')
         .then(response => response.data)
         .then(exerc => {
-            constext = {
+            const context = {
                 title: 'Exercício 6',
                 exercicios: exerc
             }
-            res.render('exerc/exerc06', constext)
+            res.render('exerc/exerc06', context)
         })
         .catch(error => res.render('exerc/exerc06', error.valueOf()))
 })

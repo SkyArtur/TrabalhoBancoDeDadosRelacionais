@@ -12,7 +12,7 @@ class Config(Connector):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.root_dir = ROOT_DIR
-        self.sql_dir = self.root_dir / 'mysql'
+        self.sql_dir = self.root_dir.joinpath('mysql')
 
 
 session = Config(params={

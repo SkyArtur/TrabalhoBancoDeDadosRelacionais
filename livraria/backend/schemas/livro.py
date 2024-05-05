@@ -4,15 +4,15 @@ from config import session
 
 
 class Livro(Base):
-    id: Optional[int | None] = None
+    id: Optional[int] = None
     editora_id: int
-    editora: Optional[str | None] = None
+    editora: Optional[str] = None
     titulo: str
     autor: str
     ano: int
     isbn: str
     preco: float
-    quantidade: Optional[int | None] = None
+    quantidade: Optional[int] = None
 
     @classmethod
     def get_livros(cls) -> List['Livro']:
@@ -24,4 +24,4 @@ class Livro(Base):
     def save(self) -> 'Livro':
         query_livro = 'select inserir_livro(%s, %s, %s, %s, %s, %s, %s);'
         livro = session.execute(query_livro, self.tuple(), fetchone=True, commit=True)
-        return Livro(**session.execute('call buscar_livro(%s);', (int(*livro.values()),), fetchone=True))
+        return Livro(**session.execute('call buscar_livro();', (int(*livro.values()),), fetchone=True))

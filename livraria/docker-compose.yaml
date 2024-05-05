@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  db_livraria:
+    image: mysql
+    command: --default-authentication-plugin=caching_sha2_password
+    container_name: db_livraria
+    hostname: db_livraria
+    environment:
+      - MYSQL_ROOT_PASSWORD=${PASSWORD}
+      - MYSQL_DATABASE=${DATABASE}
+    volumes:
+      - livrariaData:/var/lib/mysql
+    ports:
+      - '3306'
+    networks:
+      - livraria
+
+  api_livraria:
+    build:
+      context: .
+      dockerfile: backend.dockerfile
+    container_name: api_livraria
+    ports:
+      - '8000'
+    networks:
+      - livraria
+    depends_on:
+      - db_livraria
+
+  site_livraria:
+    build:
+      context: .
+      dockerfile: frontend.dockerfile
+    container_name: site_livraria
+    ports:
+      - '3000:3000'
+    networks:
+      - livraria
+    depends_on:
+      - api_livraria
+
+
+volumes:
+  livrariaData:
+    name: 'livrariaData'
+
+networks:
+  livraria:
+    name: 'livraria'
+    driver: 'bridge'
+

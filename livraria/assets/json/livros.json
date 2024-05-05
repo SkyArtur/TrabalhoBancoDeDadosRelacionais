@@ -1,6 +1,6 @@
 [
     {
-        "editora": 1,
+        "editora_id": 1,
         "titulo": "Minha Faculdade Vai Me Enlouquecer",
         "autor": "Murilo dos Santos",
         "ano": 2023,
@@ -9,7 +9,7 @@
         "quantidade": 35
     },
     {
-        "editora": 1,
+        "editora_id": 1,
         "titulo": "Controlando as Emoções",
         "autor": "Letícia de Munhoz Neta",
         "ano": 2021,
@@ -18,7 +18,7 @@
         "quantidade": 50
     },
     {
-        "editora": 1,
+        "editora_id": 1,
         "titulo": "Brasil Brasileiro",
         "autor": "Mariana Luiza de Andrade",
         "ano": 2020,
@@ -27,7 +27,7 @@
         "quantidade": 50
     },
     {
-        "editora": 2,
+        "editora_id": 2,
         "titulo": "Se Eu Voltasse no Passado",
         "autor": "Dionísio Siqueira",
         "ano": 2021,
@@ -36,7 +36,7 @@
         "quantidade": 50
     },
     {
-        "editora": 2,
+        "editora_id": 2,
         "titulo": "Penso, Logo Existo",
         "autor": "Ana Martinha Ramos",
         "ano": 2019,

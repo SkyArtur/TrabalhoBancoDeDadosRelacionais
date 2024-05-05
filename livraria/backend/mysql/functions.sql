@@ -14,9 +14,6 @@ create trigger atualizar_estoque
         where livro_id = NEW.livro_id;
     end;
 
--- ##################################################################################################################
---  CLIENTES
-
 create function inserir_cliente(_nome varchar(50), _telefone varchar(20), _email varchar(50), _endereco varchar(100))
     returns integer deterministic
         begin
@@ -48,9 +45,6 @@ create function atualizar_cliente(_id int, _nome varchar(50), _telefone varchar(
                 return 0;
             end if;
         end;
-
--- ##################################################################################################################
--- EDITORAS
 
 create function inserir_editora(_nome varchar(50), _telefone varchar(20), _email varchar(50), _endereco varchar(100))
     returns integer deterministic
@@ -84,9 +78,6 @@ create function atualizar_editora(_id int, _nome varchar(50), _telefone varchar(
             end if;
         end;
 
--- ##################################################################################################################
--- LIVROS
-
 create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varchar(50), _ano int, _isbn varchar(20), _preco numeric(5, 2), _quantidade int)
     returns integer deterministic
         begin
@@ -104,9 +95,6 @@ create function inserir_livro(_editora_id int, _titulo varchar(100), _autor varc
                 return 0;
             end if;
         end;
-
--- ##################################################################################################################
--- PEDIDOS
 
 create function inserir_pedido(_cliente_id int, _livro_id int, _data varchar(16), _quantidade int)
     returns boolean deterministic
@@ -129,4 +117,3 @@ create function inserir_pedido(_cliente_id int, _livro_id int, _data varchar(16)
                 return false;
             end if;
         end;
-

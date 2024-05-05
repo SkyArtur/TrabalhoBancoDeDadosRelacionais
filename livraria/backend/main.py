@@ -5,7 +5,11 @@ from routes import router
 from fastapi.middleware.cors import CORSMiddleware
 
 
-app = FastAPI()
+app = FastAPI(
+    title='API Livraria UNINTER',
+    version='0.0.1-b',
+    description='Interface para a aplicação frontend desenvolvida para a atividade prática proposta.'
+)
 
 origins = [
     "http://localhost:3000",

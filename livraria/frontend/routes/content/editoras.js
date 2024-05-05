@@ -1,6 +1,7 @@
 const router = require("express").Router()
-const axios = require("axios")
+const axios = require("../axiosInstance")
 const httpStatus = require("http-status-codes");
+
 
 
 router.get('/', (req, res) => {
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
         elements: null,
         error: null
     }
-    axios.get('http://localhost:8000/editoras')
+    axios.get('/editoras')
         .then((response) => response.data)
         .then(editoras => {
             context.elements = editoras
@@ -29,10 +30,10 @@ router.post('/', (req, res) => {
             email: req.body.email,
             endereco: req.body.endereco,
         }
-        axios.post('http://localhost:8000/editoras', body)
+        axios.post('/editoras', body)
             .catch(console.error)
     } else {
-        axios.put('http://localhost:8000/editoras', req.body)
+        axios.put('/editoras', req.body)
             .catch(console.error)
     }
     res.redirect('/editoras')

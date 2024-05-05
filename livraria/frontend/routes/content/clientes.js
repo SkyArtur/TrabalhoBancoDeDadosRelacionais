@@ -1,6 +1,8 @@
 const httpStatus = require('http-status-codes')
 const router = require("express").Router()
-const axios = require("axios")
+const axios = require('../axiosInstance')
+
+
 
 
 router.get('/', (req, res) => {
@@ -9,7 +11,7 @@ router.get('/', (req, res) => {
         elements: null,
         error: null
     }
-    axios.get('http://localhost:8000/clientes')
+    axios.get('/clientes')
         .then(response => response.data)
         .then(clientes => {
             context.elements = clientes
@@ -29,11 +31,11 @@ router.post('/', (req, res) => {
             email: req.body.email,
             endereco: req.body.endereco,
         }
-        axios.post('http://localhost:8000/clientes', body)
-            .catch(() => res.redirect('/clientes'))
+        axios.post('/clientes', body)
+            .catch(console.error)
     } else {
-        axios.put('http://localhost:8000/clientes', req.body)
-            .catch(() => res.redirect('/clientes'))
+        axios.put('/clientes', req.body)
+            .catch(console.error)
     }
     res.redirect('/clientes')
 })

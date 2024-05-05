@@ -11,7 +11,7 @@ class ItemPedido(Base):
 
 
 class Pedido(Base):
-    id: Optional[int | None] = None
+    id: Optional[int] = None
     cliente_id: int
     data: str
     valor: float

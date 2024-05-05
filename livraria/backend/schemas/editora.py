@@ -4,7 +4,7 @@ from config import session
 
 
 class Editora(Base):
-    id: Optional[int | None] = None
+    id: Optional[int] = None
     nome: str
     telefone: str
     email: str

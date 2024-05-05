@@ -25,6 +25,7 @@ create procedure buscar_pedido()
     end;
 
 -- EXERCÍCIOS
+
 create procedure quantitativo_de_livros_cadastrados()
     begin
         select l.titulo , d.nome, e.quantidade from livros l
