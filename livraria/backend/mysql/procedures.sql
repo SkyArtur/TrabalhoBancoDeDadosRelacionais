@@ -63,5 +63,14 @@ create procedure cliente_e_numero_de_compras()
             join pedidos e on c.id = e.cliente_id
             join item_pedido p on e.id = p.pedido_id
             group by c.nome
-            order by c.nome;
+            order by compras desc;
     end;
+
+create procedure total_de_livros_cadastrados()
+    begin
+        select sum(e.quantidade) "Quantidade de livros em estoque" from livros l
+        join estoque e on l.id = e.livro_id
+        order by e.quantidade desc;
+    end;
+
+select nome from clientes order by nome desc;
