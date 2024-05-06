@@ -144,7 +144,22 @@ create or replace function cadastrar_medico(
     $$ language plpgsql;
 ```
 
-## Proposta 1 - Livraria
+## Proposta 2 - Livraria
+
+### Modelo Proposto
+
+![MRE-livraria.png](assets%2FMRE-livraria.png)
+
+### Aplicação
+
+Um pequeno sistema foi desenvolvido para experimentação dos conhecimentos apresentados em aula. Ele consiste de:
+- uma aplicação frontend feita em NodeJS e utilizando o framework Express JS;
+
+![APP-livraria.png](assets%2FAPP-livraria.png)
+
+- uma interface de programação de aplicação (API) feita em Python utilizando o framework FastAPIi;
+
+![API-livraria.png](assets%2FAPI-livraria.png)
 
 ### Instruções de utilização
 
@@ -167,8 +182,6 @@ http://localhost:3000
 
 Esta aplicação é meramente uma atividade didática e não tem finalidade real além do execício de habilidades em 
 programação e de fazer parte de um repositório de códigos pessoais.
-
-![MRE-livraria.png](assets%2FMRE-livraria.png)
 
 ### Tabelas
 
@@ -434,18 +447,6 @@ create trigger atualizar_estoque
         where livro_id = NEW.livro_id;
     end;
 ```
-
-### Aplicação
-
-Para a realização dos cadastros necessários, bem como as consultas solicitadas para a atividade prática, foi desenvolvida 
-um pequeno sistema que consiste em:
-- uma aplicação frontend feita em NodeJS e utilizando o framework Express JS;
-
-![APP-livraria.png](assets%2FAPP-livraria.png)
-
-- uma interface de programação de aplicação (API) feita em Python utilizando o framework FastApi;
-
-![API-livraria.png](assets%2FAPI-livraria.png)
 
 Para comunicação com o banco de dados foi implementado um connector personalizado que utiliza a biblioteca mysql.connector.
 É um objeto em padrão singleton muito simples, mas que bem ao seu propósito.
