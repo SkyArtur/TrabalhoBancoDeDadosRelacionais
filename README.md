@@ -1,7 +1,7 @@
 
 
 
-# Exercício proposto na disciplina: Banco de dados Relacionai
+# Exercício proposto na disciplina: Banco de dados Relacionais
 
 > *Bacharelado em Engenharia de Software - Uninter*
 > *Profº Ricardo Sonaglio Alba
