@@ -3,7 +3,7 @@
 
 # Exercício proposto na disciplina: Banco de dados Relacionai
 
-> *Bacharelado em Engrenharia de Software - Uninter*
+> *Bacharelado em Engenharia de Software - Uninter*
 > *Profº Ricardo Sonaglio Alba
 
 ## Proposta 1 - Clínica
